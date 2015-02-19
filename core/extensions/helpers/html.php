@@ -66,6 +66,35 @@ class Html
         }
         return '<a href="' . PUBLIC_PATH . "$action\" $attrs >$text</a>";
     }
+    
+    public static function linkIcono($icono, $action, $text, $attrs = NULL)
+    {
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+            
+        }
+        if(is_array($icono)){
+            $icono = Tag::getAttrs($icono);
+        }
+       
+        return '<a href="' . PUBLIC_PATH . "$action\" $attrs ><i class='".$icono."'></i>$text</a>";
+    }
+    
+    public static function linkIconoFlecha($icono,$flecha, $action, $text, $attrs = NULL)
+    {
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+            
+        }
+        if(is_array($icono)){
+            $icono = Tag::getAttrs($icono);
+        }
+        if(is_array($flecha)){
+            $flecha = Tag::getAttrs($flecha);
+        }
+       
+        return '<a href="' . PUBLIC_PATH . "$action\" $attrs ><i class='".$icono."'></i><span class='menu-text'>$text</span><b class='".$flecha."'></b></a>";
+    }
 
     /**
      * Crea un enlace a una acción del mismo controller que estemos

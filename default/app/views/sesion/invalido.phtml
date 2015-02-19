@@ -1,0 +1,26 @@
+<?echo Form::open()?>
+<div class="position-relative">
+    <div id="login-box" class="login-box visible widget-box no-border">
+        <div class="widget-body">
+            <fieldset>
+            <div class="widget-main">
+                <h4 class="header blue lighter bigger">
+                    <i class="ace-icon fa fa-coffee green"></i>
+                    Su usuario y contraseña no coinciden
+                </h4>
+
+                <div class="space-6"></div>
+
+               <?echo Html::link("sesion/index", "Volver a intentar", "class='width-50 pull-right btn btn-sm btn-primary' ")?>
+            
+                <br><br>    
+            </fieldset> 
+
+            </div><!-- /.widget-main -->
+
+
+        </div><!-- /.widget-body -->
+    </div><!-- /.login-box -->
+
+</div><!-- /.position-relative -->
+<?echo Form::close()?>

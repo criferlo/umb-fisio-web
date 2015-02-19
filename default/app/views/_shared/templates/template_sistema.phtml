@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Dashboard - Ace Admin</title>
+		<title>UMB-Fisio-Web</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -74,7 +74,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
-							Ace Admin
+							UMB-Fisio-Web
 						</small>
 					</a>
 
@@ -283,7 +283,8 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="../assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+												
+                                                                                                <?echo Html::img("avatar5.png","Avatar",'class="msg-photo"')?>
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Bob:</span>
@@ -300,7 +301,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="../assets/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+												<?echo Html::img("avatar5.png","Avatar",'class="msg-photo"')?>
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Kate:</span>
@@ -317,7 +318,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="../assets/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+												<?echo Html::img("avatar5.png","Avatar",'class="msg-photo"')?>
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Fred:</span>
@@ -346,10 +347,10 @@
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="../assets/avatars/user.jpg" alt="Jason's Photo" />
+								<?echo Html::img("avatar5.png","Avatar",'class="msg-photo"')?>
 								<span class="user-info">
-									<small>Welcome,</small>
-									Jason
+									<small>Bienvenido,</small>
+									<?echo Auth::get("nombre")?>
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -359,24 +360,22 @@
 								<li>
 									<a href="#">
 										<i class="ace-icon fa fa-cog"></i>
-										Settings
+										Configuraciones
 									</a>
 								</li>
 
 								<li>
 									<a href="profile.html">
 										<i class="ace-icon fa fa-user"></i>
-										Profile
+										Perfil
 									</a>
 								</li>
 
 								<li class="divider"></li>
 
 								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-power-off"></i>
-										Logout
-									</a>
+                                                                    
+                                                                        <?echo Html::linkIcono("ace-icon fa fa-power-off","sesion/cerrar", "Cerrar sesion")?>
 								</li>
 							</ul>
 						</li>
@@ -436,23 +435,15 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="index.html">
-							<i class="menu-icon fa fa-tachometer"></i>
-							<span class="menu-text"> Dashboard </span>
-						</a>
+						
+                                                <?echo Html::linkIcono("menu-icon fa fa-tachometer", "sistema/index", "Inicio")?>
 
 						<b class="arrow"></b>
 					</li>
 
 					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-desktop"></i>
-							<span class="menu-text">
-								UI &amp; Elements
-							</span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
+						
+                                                <?echo Html::linkIconoFlecha("menu-icon fa fa-desktop","arrow fa fa-angle-down", "#", "Alarmas","class='dropdown-toggle'")?>
 
 						<b class="arrow"></b>
 
@@ -461,454 +452,268 @@
 								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 
-									Layouts
+									Opción 1
 									<b class="arrow fa fa-angle-down"></b>
 								</a>
 
 								<b class="arrow"></b>
 
-								<ul class="submenu">
-									<li class="">
-										<a href="top-menu.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Top Menu
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="two-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Two Menus 1
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="two-menu-2.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Two Menus 2
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="mobile-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Default Mobile Menu
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="mobile-menu-2.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Mobile Menu 2
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="mobile-menu-3.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Mobile Menu 3
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-								</ul>
+								
 							</li>
 
 							<li class="">
 								<a href="typography.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Typography
+									Opción 2
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
-								<a href="elements.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Elements
-								</a>
+							
 
-								<b class="arrow"></b>
-							</li>
+						</ul>
+					</li>
 
-							<li class="">
-								<a href="buttons.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Buttons &amp; Icons
-								</a>
+					<li class="">
+						
+                                                <?echo Html::linkIconoFlecha("menu-icon fa fa-desktop","arrow fa fa-angle-down", "#", "Configuración","class='dropdown-toggle'")?>
 
-								<b class="arrow"></b>
-							</li>
+						<b class="arrow"></b>
 
-							<li class="">
-								<a href="content-slider.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Content Sliders
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="treeview.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Treeview
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="jquery-ui.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									jQuery UI
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="nestable-list.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Nestable Lists
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
+						<ul class="submenu">
 							<li class="">
 								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 
-									Three Level Menu
+									Opción 1
 									<b class="arrow fa fa-angle-down"></b>
 								</a>
 
 								<b class="arrow"></b>
 
-								<ul class="submenu">
-									<li class="">
-										<a href="#">
-											<i class="menu-icon fa fa-leaf green"></i>
-											Item #1
-										</a>
-
-										<b class="arrow"></b>
-									</li>
-
-									<li class="">
-										<a href="#" class="dropdown-toggle">
-											<i class="menu-icon fa fa-pencil orange"></i>
-
-											4th level
-											<b class="arrow fa fa-angle-down"></b>
-										</a>
-
-										<b class="arrow"></b>
-
-										<ul class="submenu">
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-plus purple"></i>
-													Add Product
-												</a>
-
-												<b class="arrow"></b>
-											</li>
-
-											<li class="">
-												<a href="#">
-													<i class="menu-icon fa fa-eye pink"></i>
-													View Products
-												</a>
-
-												<b class="arrow"></b>
-											</li>
-										</ul>
-									</li>
-								</ul>
+								
 							</li>
+
+							<li class="">
+								<a href="typography.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Opción 2
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+
 						</ul>
 					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> Tables </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
+                                        
+                                        <li class="">
+						
+                                                <?echo Html::linkIconoFlecha("menu-icon fa fa-desktop","arrow fa fa-angle-down", "#", "T. predeterminadas","class='dropdown-toggle'")?>
 
 						<b class="arrow"></b>
 
 						<ul class="submenu">
 							<li class="">
-								<a href="tables.html">
+								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Simple &amp; Dynamic
+
+									Opción 1
+									<b class="arrow fa fa-angle-down"></b>
 								</a>
 
 								<b class="arrow"></b>
+
+								
 							</li>
 
 							<li class="">
-								<a href="jqgrid.html">
+								<a href="typography.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									jqGrid plugin
+									Opción 2
 								</a>
 
 								<b class="arrow"></b>
 							</li>
+
+							
+
 						</ul>
 					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> Forms </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
+                                        
+                                        <li class="">
+						
+                                                <?echo Html::linkIconoFlecha("menu-icon fa fa-desktop","arrow fa fa-angle-down", "#", "Terapias con fatiga","class='dropdown-toggle'")?>
 
 						<b class="arrow"></b>
 
 						<ul class="submenu">
 							<li class="">
-								<a href="form-elements.html">
+								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Form Elements
+
+									Opción 1
+									<b class="arrow fa fa-angle-down"></b>
 								</a>
 
 								<b class="arrow"></b>
+
+								
 							</li>
 
 							<li class="">
-								<a href="form-elements-2.html">
+								<a href="typography.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Form Elements 2
+									Opción 2
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
-								<a href="form-wizard.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Wizard &amp; Validation
-								</a>
+							
 
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="wysiwyg.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Wysiwyg &amp; Markdown
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="dropzone.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Dropzone File Upload
-								</a>
-
-								<b class="arrow"></b>
-							</li>
 						</ul>
 					</li>
-
-					<li class="">
-						<a href="widgets.html">
-							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> Widgets </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="calendar.html">
-							<i class="menu-icon fa fa-calendar"></i>
-
-							<span class="menu-text">
-								Calendar
-
-								<!-- #section:basics/sidebar.layout.badge -->
-								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
-									<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-								</span>
-
-								<!-- /section:basics/sidebar.layout.badge -->
-							</span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="gallery.html">
-							<i class="menu-icon fa fa-picture-o"></i>
-							<span class="menu-text"> Gallery </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> More Pages </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
+                                        
+                                        <li class="">
+						
+                                                <?echo Html::linkIconoFlecha("menu-icon fa fa-desktop","arrow fa fa-angle-down", "#", "Electrodiagnóstico","class='dropdown-toggle'")?>
 
 						<b class="arrow"></b>
 
 						<ul class="submenu">
 							<li class="">
-								<a href="profile.html">
+								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
-									User Profile
+
+									Opción 1
+									<b class="arrow fa fa-angle-down"></b>
 								</a>
 
 								<b class="arrow"></b>
+
+								
 							</li>
 
 							<li class="">
-								<a href="inbox.html">
+								<a href="typography.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Inbox
+									Opción 2
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
-								<a href="pricing.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Pricing Tables
-								</a>
+							
 
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="invoice.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Invoice
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="timeline.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Timeline
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="email.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Email Templates
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="login.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Login &amp; Register
-								</a>
-
-								<b class="arrow"></b>
-							</li>
 						</ul>
 					</li>
-
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-file-o"></i>
-
-							<span class="menu-text">
-								Other Pages
-
-								<!-- #section:basics/sidebar.layout.badge -->
-								<span class="badge badge-primary">5</span>
-
-								<!-- /section:basics/sidebar.layout.badge -->
-							</span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
+                                        
+                                        <li class="">
+						
+                                                <?echo Html::linkIconoFlecha("menu-icon fa fa-desktop","arrow fa fa-angle-down", "#", "Termoterapia","class='dropdown-toggle'")?>
 
 						<b class="arrow"></b>
 
 						<ul class="submenu">
 							<li class="">
-								<a href="faq.html">
+								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
-									FAQ
+
+									Opción 1
+									<b class="arrow fa fa-angle-down"></b>
 								</a>
 
 								<b class="arrow"></b>
+
+								
 							</li>
 
 							<li class="">
-								<a href="error-404.html">
+								<a href="typography.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Error 404
+									Opción 2
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
-								<a href="error-500.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Error 500
-								</a>
+							
 
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="grid.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Grid
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="">
-								<a href="blank.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Blank Page
-								</a>
-
-								<b class="arrow"></b>
-							</li>
 						</ul>
 					</li>
+                                        
+                                        <li class="">
+						
+                                                <?echo Html::linkIconoFlecha("menu-icon fa fa-desktop","arrow fa fa-angle-down", "#", "Monitoreo","class='dropdown-toggle'")?>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Opción 1
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								
+							</li>
+
+							<li class="">
+								<a href="typography.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Opción 2
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+
+						</ul>
+					</li>
+                                        <li class="">
+						
+                                                <?echo Html::linkIconoFlecha("menu-icon fa fa-desktop","arrow fa fa-angle-down", "#", "Comunicación","class='dropdown-toggle'")?>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Opción 1
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								
+							</li>
+
+							<li class="">
+								<a href="typography.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Opción 2
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+
+						</ul>
+					</li>
+                                        
+                                        
+
 				</ul><!-- /.nav-list -->
 
 				<!-- #section:basics/sidebar.layout.minimize -->
@@ -936,18 +741,10 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-							<li class="active">Dashboard</li>
+							<li class="active">Bienvenidos</li>
 						</ul><!-- /.breadcrumb -->
 
-						<!-- #section:basics/content.searchbox -->
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+						
 
 						<!-- /section:basics/content.searchbox -->
 					</div>
@@ -1044,15 +841,7 @@
 						</div><!-- /.ace-settings-container -->
 
 						<!-- /section:settings.box -->
-						<div class="page-header">
-							<h1>
-								Dashboard
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									overview &amp; stats
-								</small>
-							</h1>
-						</div><!-- /.page-header -->
+						
 
 						<div class="row">
 							<div class="col-xs-12">
@@ -1117,9 +906,8 @@
  window.jQuery || document.write("<script src='../assets/js/jquery1x.js'>"+"<"+"/script>");
 </script>
 <![endif]-->
-		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) <?echo Tag::js('ace/jquery.mobile.custom')?>
-		</script>
+		
+                        
 		
 		<?echo Tag::js('ace/bootstrap')?>
 

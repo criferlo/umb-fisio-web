@@ -1,7 +1,0 @@
-<?
-
-class Tiposemestre extends ActiveRecord{
-	
-}
-
-?>
