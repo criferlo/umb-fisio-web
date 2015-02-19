@@ -1,0 +1,79 @@
+<div class="center">Docentes de la Universidad Movilizados</div>
+<div class="center">Programa: psicología</div>
+
+<br>
+<? echo Form::openMultipart(null, "class='form-horizontal'") ?>
+
+
+<div class="form-group">
+    <div class="col-xs-4">Semestre</div>
+    <div class="col-xs-8"><? echo Form::dbSelect("Tiposemestre_id") ?></div>
+</div>
+<div class="form-group">
+    <div class="col-xs-4">Fecha</div>
+    <div class="col-xs-8"><? echo Form::date("fecha", "class='col-xs-8'") ?></div>
+</div>
+<div class="form-group">
+    <div class="col-xs-4">Seleccione docente</div>
+    <div class="col-xs-8"><? echo Html::link("", "Agregar nuevo") ?></div>
+</div>
+<div class="form-group">
+    <div class="col-xs-12"><? echo Form::dbSelect("Usuario_id", null, null, null, "class='col-xs-12'") ?></div>
+
+</div>
+
+<div class="form-group">
+    <div class="col-xs-12">Digite los datos de la movilidad</div>
+
+</div>
+<div class="form-group">
+    <div class="col-xs-12"><?echo Form::input("text", "areaconocimiento","placeholder='Area de conocimiento' class='col-xs-12'")?></div>
+
+</div>
+<div class="form-group">
+    <div class="col-xs-12"><?echo Form::input("text", "nombreevento","placeholder='Nombre del evento' class='col-xs-12'")?></div>
+
+</div>
+<div class="form-group">
+    <div class="col-xs-12"><?echo Form::input("text", "instituciondestino","placeholder='Institución destino' class='col-xs-12'")?></div>
+
+</div>
+<div class="form-group">
+    <div class="col-xs-4">Tipo de movilidad </div>
+    <div class="col-xs-8"><? echo Form::dbSelect("Tipomovilidad_id",null,null,null,"class='col-xs-8'") ?></div>
+</div>
+<div class="form-group">
+    <div class="col-xs-4">País destino </div>
+    <div class="col-xs-8"><? echo Form::dbSelect("Tipopais_id",null,null,null,"class='col-xs-8'") ?></div>
+</div>
+<div class="form-group">
+    <div class="col-xs-4">Ciudad destino </div>
+    <div class="col-xs-8"><? echo Form::dbSelect("Tipociudad_id",null,null,null,"class='col-xs-8'") ?></div>
+</div>
+<div class="form-group">
+    <div class="col-xs-4">Tipo financiación </div>
+    <div class="col-xs-8"><? echo Form::dbSelect("Tipofinanciacion_id",null,null,null,"class='col-xs-8'") ?></div>
+</div>
+<div class="form-group">
+    <div class="col-xs-12">Describa la experiencia</div>
+
+</div>
+<div class="form-group">
+    <div class="col-xs-12"><?echo Form::textarea("experiencia", "class='col-xs-12'")?></div>
+
+</div>
+<div class="form-group">
+    <div class="col-xs-12">Suba un archivo .zip con fotos , certificados u otras evidencias</div>
+
+</div>
+<div class="form-group">
+    <div class="col-xs-12"><?echo Form::file("archivo")?></div>
+
+</div>
+<div class="form-group">
+    <div class="col-xs-12"><?echo Form::submit("Guardar", "class='col-xs-12'")?></div>
+
+</div>
+
+<?
+echo Form::close()?>
