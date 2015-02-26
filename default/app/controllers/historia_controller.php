@@ -22,7 +22,7 @@ class HistoriaController extends AppController {
 
         $consulta = null;
 
-        if (!empty(Input::post("textoBusqueda"))) {
+        if (!isset(Input::post("textoBusqueda"))) {
 
             if (Input::post("comboBusqueda") == "0") {
                 $consulta = "identificacion=" . Input::post("textoBusqueda");
