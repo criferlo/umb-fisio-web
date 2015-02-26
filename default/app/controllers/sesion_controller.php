@@ -21,7 +21,7 @@ class SesionController extends AppController {
             $ced = Input::post("cedula");
             $cla = Input::post("clave");
             
-            $auth = new Auth("model", "class: usuario", "cedula: $ced", "clave: $cla");
+            $auth = new Auth("model", "class: Usuario", "cedula: $ced", "clave: $cla");
             if($auth->authenticate()){
                 Router::redirect("sistema/index");
             }
