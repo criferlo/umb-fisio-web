@@ -1,0 +1,11 @@
+<div class="page-header">
+    <h4>Citas para: 
+    
+    <?
+        Load::model("historia");
+        $his = new Historia();
+        $his->find_first($idhistoria);
+        echo $his->nombres." ".$his->apellidos;
+    ?>
+    </h4>
+</div>

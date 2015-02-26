@@ -1,0 +1,111 @@
+
+<? echo View::content() ?>
+<? echo Form::open("historia/index", "POST", "class='form-inline'") ?>       
+
+<div class="row">
+
+    <label>Buscar por: </label>
+
+    <?
+    $comboBusqueda = array('Identificación', 'Apellido');
+
+    echo Form::select("comboBusqueda", $comboBusqueda, "identificación");
+    echo Form::text("textoBusqueda", "placeholder='Escribe aquí..'", "");
+    ?>
+
+    <button type="submit" class="btn btn-purple btn-sm">
+        <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+        Buscar
+    </button>
+    <? echo Html::link("historia/nuevo", "Crear nuevo", "class='btn btn-danger btn-sm'") ?>
+
+</div>
+
+<? echo Form::close() ?>
+<br>
+
+<? View::partial('paginators/extended', false, array('page' => $historias, 'url' => 'historia/index')); ?>
+<br>
+<table class="table table-striped">
+    <thead><tr style="text-align:center;font-weight:bold;">
+            <th>Identificación</th>
+            <th>Apellidos</th>
+            <th>Nombres</th>
+            <th>Teléfono</th>
+            <th>Acudiente</th>
+            <th>Tel acudiente</th>
+            <th>Opciones</th>
+           
+        </tr></thead>   
+
+    <tbody>
+        <? foreach ($historias->items as $obj) { ?>
+            <tr>
+                <td><? echo $obj->identificacion ?></td>
+                <td><? echo $obj->apellidos ?></td>
+                <td><? echo $obj->nombres ?></td>
+                <td><? echo $obj->telefono1 ?></td>
+                <td><? echo $obj->acudiente ?></td>
+                <td><? echo $obj->telefonoacudiente ?></td>
+                <td>
+                    <div class="hidden-sm hidden-xs btn-group">
+                        <!--<button class="btn btn-xs btn-success">
+                           
+                            <i class="ace-icon fa fa-check bigger-120"></i>
+                            
+                       </button>-->
+
+                        <div class="btn btn-xs btn-info">
+
+                            <? echo Html::linkSoloIcono("ace-icon fa fa-pencil bigger-120", "", false, "historia/editar/$obj->id") ?>
+                        </div>
+
+                        <div class="btn btn-xs btn-danger">
+
+                            <? echo Js::linkAction("eliminar/$obj->id", "", "¿Está seguro de eliminar?", "ace-icon fa fa-trash-o bigger-120") ?>
+                        </div>
+
+                        <!--<button class="btn btn-xs btn-warning">
+                            <i class="ace-icon fa fa-flag bigger-120"></i>
+                        </button>-->
+                    </div>
+
+                    <div class="hidden-md hidden-lg">
+                        <div class="inline pos-rel">
+                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
+                                <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
+                            </button>
+
+                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+                                <li>
+                                    <? echo "hola" ?>
+
+                                </li>
+
+                                <li>
+                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                        <span class="green">
+                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                        <span class="red">
+                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        <? } ?> 
+    </tbody>
+   
+</table> 
+
+<? View::partial('paginators/extended', false, array('page' => $historias,'url' => 'historia/index')); ?>
+

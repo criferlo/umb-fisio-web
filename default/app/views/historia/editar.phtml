@@ -1,0 +1,94 @@
+
+<? echo View::content() ?>
+<? echo Form::open("historia/editar/$id") ?>
+
+<div class="tabbable"> 
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Historia</a></li>
+        <li><a href="#tab2" data-toggle="tab">Datos personales</a></li>
+        <li><a href="#tab3" data-toggle="tab">Antecedentes</a></li>
+        <li><a href="#tab4" data-toggle="tab">Antecedentes ginecológicos</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+            <div class="form-group">
+                <label>Tipo de identificación</label>                      
+                <? echo Form::dbSelect("tipoidentificacion.tipoidentificacion_id", "nombre",null,null,"class='form-control'",$obj->tipoidentificacion_id) ?>
+            </div>
+            <div class="form-group"> <label>Número de historia - [Número de identificación]</label>
+            <? echo Form::text("historia.identificacion", "class='form-control' placeholder='Historia clínica'","$obj->identificacion") ?></div>
+            <div class="form-group"> <label>Nombres</label> 
+            <? echo Form::text("historia.nombres", "class='form-control' placeholder='Nombres'","$obj->nombres") ?></div>
+            <div class="form-group"> <label>Apellidos</label> 
+            <? echo Form::text("historia.apellidos", "class='form-control' placeholder='Apellidos'","$obj->apellidos") ?></div>
+            <div class="form-group"><label>Programa</label>
+                <? echo Form::dbSelect("tipoprograma.tipoprograma_id", "nombre",null,null,"class='form-control'","$obj->tipoprograma_id") ?></div>
+            <div class="form-group"><label>Tipo de eps</label>
+                <? echo Form::dbSelect("tipoeps.tipoeps_id", "nombre",null,null,"class='form-control'",$obj->tipoeps_id) ?></div>
+            <div class="form-group"> <label>Tipo régimen</label>
+                <? echo Form::dbSelect("tiporegimen.tiporegimen_id", "nombre",null,null,"class='form-control'",$obj->tiporegimen_id) ?></div>
+            <div class="form-group"> <label>Carnet EPS</label>
+            <? echo Form::text("historia.carneteps", "class='form-control' placeholder='Número de carnet'","$obj->carneteps") ?></div>
+
+        </div>
+        <div class="tab-pane" id="tab2">
+
+            <div class="form-group"> <label>Teléfono 1</label>
+                <? echo Form::text("historia.telefono1", "class='form-control' placeholder='Teléfono 1'",$obj->telefono1) ?>
+            </div>
+            <div class="form-group"> <label>Teléfono 2</label>
+            <? echo Form::text("historia.telefono2", "class='form-control' placeholder='Teléfono 2'",$obj->telefono2) ?></div>
+            <div class="form-group"> <label>Acudiente</label>
+            <? echo Form::text("historia.acudiente", "class='form-control' placeholder='Acudiente'",$obj->acudiente) ?></div>
+            <div class="form-group"> <label>Teléfono acudiente</label>
+            <? echo Form::text("historia.telefonoacudiente", "class='form-control' placeholder='Telefono acudiente'",$obj->telefonoacudiente) ?></div>
+            <div class="form-group"><label>Fecha nacimiento</label>
+                <? echo Form::date("historia.fechanacimiento","class='form-control'",$obj->fechanacimiento) ?></div>
+            <div class="form-group"><label>Género</label>
+                <? echo Form::dbSelect("tipogenero.tipogenero_id", "nombre",null,null,"class='form-control'",$obj->tipogenero_id) ?></div>
+            <div class="form-group"><label>Estado civil</label>
+                <? echo Form::dbSelect("tipoestadocivil.tipoestadocivil_id", "nombre",null,null,"class='form-control'",$obj->tipoestadocivil_id) ?></div>
+            <div class="form-group"> <label>Ciudad de procedencia</label>
+            <? echo Form::text("historia.procedencia", "class='form-control' placeholder='Ciudad procedencia'",$obj->procedencia) ?></div>
+            <div class="form-group"> <label>Residencia</label>
+            <? echo Form::text("historia.residencia", "class='form-control' placeholder='Residencia'",$obj->residencia) ?></div>
+            <div class="form-group"><label>Tipo de residencia</label>
+                <? echo Form::dbSelect("tipozona.tipozona_id", "nombre",null,null,"class='form-control'",$obj->tipozona_id) ?></div>
+        </div>
+        <div class="tab-pane" id="tab3">
+            <div class="form-group">Antecedentes personales
+            <? echo Form::textarea("historia.antecedentespersonales", "class='form-control' placeholder='Escriba aquí'",$obj->antecedentespersonales) ?></div>
+            <div class="form-group">Antecedentes familiares
+            <? echo Form::textarea("historia.antecedentesfami", "class='form-control' placeholder='Escriba aquí'",$obj->antecedentesfami) ?></div>
+            <div class="form-group">Hábitos
+            <? echo Form::textarea("historia.habitos", "class='form-control' placeholder='Escriba aquí'",$obj->habitos) ?></div>
+
+        </div>
+        <div class="tab-pane" id="tab4">
+
+            <div class="form-group">Menarquia
+            <? echo Form::textarea("historia.menarquia", "class='form-control' placeholder='Escriba aquí'",$obj->menarquia) ?></div>
+            <div class="form-group">Ciclos regulares
+            <? echo Form::textarea("historia.ciclosregulares", "class='form-control' placeholder='Escriba aquí'",$obj->ciclosregulares) ?></div>
+            <div class="form-group">Escala
+            <? echo Form::textarea("historia.escala", "class='form-control' placeholder='Escriba aquí'",$obj->escala) ?></div>
+            <div class="form-group">Gestaciones
+            <? echo Form::textarea("historia.gestaciones", "class='form-control' placeholder='Escriba aquí'",$obj->gestaciones) ?></div>
+            <div class="form-group">Edad inicio sexual
+            <? echo Form::textarea("historia.edadiniciosexual", "class='form-control' placeholder='Escriba aquí'",$obj->edadiniciosexual) ?></div>
+            <div class="form-group">Número parejas
+            <? echo Form::textarea("historia.nroparejas", "class='form-control' placeholder='Escriba aquí'",$obj->nroparejas) ?></div>
+            <div class="form-group">Antecedentes de infecciones
+            <? echo Form::textarea("historia.antinfecciones", "class='form-control' placeholder='Escriba aquí'",$obj->antinfecciones) ?></div>
+            <div class="form-group">Citologías
+            <? echo Form::textarea("historia.citologias", "class='form-control' placeholder='Escriba aquí'",$obj->citologias) ?></div>
+        </div>
+    </div>
+</div>
+<br>    
+<?echo Form::submit("Guardar","class='btn btn-danger btn-sm'")?>
+    <?echo Html::link("historia/index", "Cancelar")?>
+
+<? echo Form::close() ?>
+        
+<? echo View::content() ?>

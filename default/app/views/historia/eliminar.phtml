@@ -1,0 +1,50 @@
+
+<? echo View::partial("consultorio/header_historias") ?>
+
+<!-- SECCIONES -->
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <? echo View::partial("consultorio/menu_historias") ?>
+        </div>
+        <div class="span10">
+            <div><? echo View::content()?></div>
+            <? echo Form::open() ?>
+            <table>
+                <tr><td style="width: 90%"><legend>¿Está seguro de eliminar esta Historia Clínica?</legend>
+            </td><td style="width: 10%"><? echo Form::submit("Eliminar","class='btn btn-primary'")?></td>
+               <td><?echo Html::linkAction("index", "Cancelar","class='btn btn-primary'")?>
+                <?echo Form::hidden("idhistoria", null, $obj->id)?></td></tr>
+            </table>
+            
+            <div class="tabbable"> 
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">Historia</a></li>
+                    
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <div><? echo Form::label("Tipo identificación:","tipoidentificacion")?>                        
+                        <? echo Form::dbSelect("tipoidentificacion.tipoidentificacion_id", "nombre",null,null,null,$obj->tipoidentificacion_id) ?></div>
+                        <div> <?echo Form::label("Historia clínica [Identificación]","historia.identificacion")?></div>
+                        <div> <? echo Form::text("historia.identificacion", "class='input-large' placeholder='Historia clínica'","$obj->identificacion") ?></div>
+                        <div> <?echo Form::label("Nombres","historia.nombres")?></div>
+                        <div> <? echo Form::text("historia.nombres", "class='input-large' placeholder='Nombres'","$obj->nombres") ?></div>
+                        <div> <?echo Form::label("Apellidos","historia.apellidos")?></div>
+                        <div><? echo Form::text("historia.apellidos", "class='input-large' placeholder='Apellidos'","$obj->apellidos") ?></div>
+                        <div><? echo Form::label("Programa", "tipoprograma")?>
+                        <? echo Form::dbSelect("tipoprograma.tipoprograma_id", "nombre",null,null,null,"$obj->tipoprograma_id") ?></div>
+                        <div><? echo Form::label("EPS", "tipoeps")?>
+                        <? echo Form::dbSelect("tipoeps.tipoeps_id", "nombre",null,null,null,$obj->tipoeps_id) ?></div>
+                        <div> <? echo Form::label("Tipo régimen", "tiporegimen")?>
+                        <? echo Form::dbSelect("tiporegimen.tiporegimen_id", "nombre",null,null,null,$obj->tiporegimen_id) ?></div>
+                        <div> <?echo Form::label("Carnet EPS","historia.carneteps")?></div>
+                       <div><? echo Form::text("historia.carneteps", "class='input-large' placeholder='Número de carnet'","$obj->carneteps") ?></div>
+                        
+                    </div>
+                </div>
+            </div>
+            <? echo Form::close() ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div id="accordion">
+                          
+    <h3><a href="#">Menú</a></h3>
+    <div>
+        <div><? echo Html::link("remision/nuevo/$idconsulta", "Nuevo") ?></div>
+        <div><? echo Html::link("remision/index/$idconsulta", "Mostrar todos") ?></div>
+         <div><? 
+         Load::model("consulta");
+         $con = new Consulta();
+         $con->find_first($idconsulta);
+         echo Html::link("consulta/index/$con->historia_id", "Volver") 
+                 
+                 ?></div>    
+    </div>   
+</div>
+
+<script>
+    $(function() {
+        $( "#accordion" ).accordion();
+    });
+</script>

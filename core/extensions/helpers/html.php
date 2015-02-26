@@ -1,4 +1,5 @@
 <?php
+
 /**
  * KumbiaPHP web & app Framework
  *
@@ -24,8 +25,7 @@
  * @category   KumbiaPHP
  * @package    Helpers
  */
-class Html
-{
+class Html {
 
     /**
      * Alternador para tabla zebra
@@ -34,12 +34,14 @@ class Html
      * @deprecated
      */
     protected static $_trClassAlternate = TRUE;
+
     /**
      * Metatags
      *
      * @var array
      */
     protected static $_metatags = array();
+
     /**
      * Enlaces de head
      *
@@ -59,41 +61,50 @@ class Html
      * @param string|array $attrs Atributos adicionales
      * @return string
      */
-    public static function link($action, $text, $attrs = NULL)
-    {
+    public static function link($action, $text, $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
         }
         return '<a href="' . PUBLIC_PATH . "$action\" $attrs >$text</a>";
     }
-    
-    public static function linkIcono($icono, $action, $text, $attrs = NULL)
-    {
+
+    public static function linkIcono($icono, $action, $text, $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
-            
         }
-        if(is_array($icono)){
+        if (is_array($icono)) {
             $icono = Tag::getAttrs($icono);
         }
-       
-        return '<a href="' . PUBLIC_PATH . "$action\" $attrs ><i class='".$icono."'></i>$text</a>";
+
+        return '<a href="' . PUBLIC_PATH . "$action\" $attrs ><i class='" . $icono . "'></i>$text</a>";
     }
-    
-    public static function linkIconoFlecha($icono,$flecha, $action, $text, $attrs = NULL)
-    {
+
+    public static function linkIconoFlecha($icono, $flecha, $action, $text, $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
-            
         }
-        if(is_array($icono)){
+        if (is_array($icono)) {
             $icono = Tag::getAttrs($icono);
         }
-        if(is_array($flecha)){
+        if (is_array($flecha)) {
             $flecha = Tag::getAttrs($flecha);
         }
-       
-        return '<a href="' . PUBLIC_PATH . "$action\" $attrs ><i class='".$icono."'></i><span class='menu-text'>$text</span><b class='".$flecha."'></b></a>";
+
+        return '<a href="' . PUBLIC_PATH . "$action\" $attrs ><i class='" . $icono . "'></i><span class='menu-text'>$text</span><b class='" . $flecha . "'></b></a>";
+    }
+
+    public static function linkSoloIcono($icono, $colorspan, $spansi, $action, $attrs = NULL) {
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+        if (is_array($icono)) {
+            $icono = Tag::getAttrs($icono);
+        }
+        if ($spansi) {
+            return '<a style="color: white" href="' . PUBLIC_PATH . "$action\" $attrs ><span class=" . $colorspan . "><i class='" . $icono . "'></i></span></a>";
+        } else {
+            return '<a style="color: white" href="' . PUBLIC_PATH . "$action\" $attrs ><i class='" . $icono . "'></i></a>";
+        }
     }
 
     /**
@@ -107,8 +118,7 @@ class Html
      * @param string|array $attrs Atributos adicionales
      * @return string
      */
-    public static function linkAction($action, $text, $attrs = NULL)
-    {
+    public static function linkAction($action, $text, $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
         }
@@ -124,8 +134,7 @@ class Html
      * @param string|array $attrs Atributos adicionales
      * @return string
      */
-    public static function img($src, $alt=NULL, $attrs = NULL)
-    {
+    public static function img($src, $alt = NULL, $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
         }
@@ -141,8 +150,7 @@ class Html
      * @return string
      * @deprecated Mejor usar CSS
      */
-    public static function trClass($class, $attrs = NULL)
-    {
+    public static function trClass($class, $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
         }
@@ -160,8 +168,7 @@ class Html
      *
      * @deprecated Mejor usar CSS
      */
-    public static function trClassStart()
-    {
+    public static function trClassStart() {
         self::$_trClassAlternate = TRUE;
     }
 
@@ -171,8 +178,7 @@ class Html
      * @param string $content contenido del metatag
      * @param string|array $attrs atributos
      */
-    public static function meta($content, $attrs = NULL)
-    {
+    public static function meta($content, $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
         }
@@ -185,8 +191,7 @@ class Html
      *
      * @return string
      */
-    public static function includeMetatags()
-    {
+    public static function includeMetatags() {
         return implode(array_unique(self::$_metatags), PHP_EOL);
     }
 
@@ -198,8 +203,7 @@ class Html
      * @param string|array $attrs atributos 
      * @return string
      */
-    public static function lists($array, $type = 'ul', $attrs = NULL)
-    {
+    public static function lists($array, $type = 'ul', $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = self::getAttrs($attrs);
         }
@@ -218,8 +222,7 @@ class Html
      *
      * @return string
      */
-    public static function includeCss()
-    {
+    public static function includeCss() {
         $code = '';
         foreach (Tag::getCss() as $css) {
             $code .= '<link href="' . PUBLIC_PATH . "css/{$css['src']}.css\" rel=\"stylesheet\" type=\"text/css\" media=\"{$css['media']}\" />" . PHP_EOL;
@@ -233,8 +236,7 @@ class Html
      * @param string $href direccion url del recurso a enlazar
      * @param string|array $attrs atributos
      */
-    public static function headLink($href, $attrs = NULL)
-    {
+    public static function headLink($href, $attrs = NULL) {
         if (is_array($attrs)) {
             $attrs = self::getAttrs($attrs);
         }
@@ -248,8 +250,7 @@ class Html
      * @param string $action ruta de accion
      * @param string|array $attrs atributos
      */
-    public static function headLinkAction($action, $attrs = NULL)
-    {
+    public static function headLinkAction($action, $attrs = NULL) {
         self::headLink(PUBLIC_PATH . $action, $attrs);
     }
 
@@ -259,8 +260,7 @@ class Html
      * @param string $resource ubicacion del recurso en public
      * @param string|array $attrs atributos
      */
-    public static function headLinkResource($resource, $attrs = NULL)
-    {
+    public static function headLinkResource($resource, $attrs = NULL) {
         self::headLink(PUBLIC_PATH . $resource, $attrs);
     }
 
@@ -269,8 +269,7 @@ class Html
      *
      * @return string
      */
-    public static function includeHeadLinks()
-    {
+    public static function includeHeadLinks() {
         $code = '';
         foreach (self::$_headLinks as $link) {
             $code .= "<link href=\"{$link['href']}\" {$link['attrs']} />" . PHP_EOL;
@@ -292,8 +291,7 @@ class Html
      * @param string $default URL gravatar por defecto si no existe, o un default de gravatar. Por defecto: mm
      * @return string
      */
-    public static function gravatar($email, $alt='gravatar', $size=40, $default='mm')
-    {
+    public static function gravatar($email, $alt = 'gravatar', $size = 40, $default = 'mm') {
         $grav_url = "http://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . '?d=' . urlencode($default) . '&s=' . $size;
         return '<img src="' . $grav_url . '" alt="' . $alt . '" class="avatar" width="' . $size . '" height="' . $size . '" />';
     }

@@ -43,7 +43,7 @@ class Js
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
         }
-        return '<a href="' . PUBLIC_PATH . "$action\" data-msg=\"$confirm\" class=\"js-confirm $class\" $attrs>$text</a>";
+        return '<a style="color: white" href="' . PUBLIC_PATH . "$action\" data-msg=\"$confirm\" class=\"js-confirm $class\" $attrs>$text</a>";
     }
 
     /**
@@ -62,7 +62,7 @@ class Js
         if (is_array($attrs)) {
             $attrs = Tag::getAttrs($attrs);
         }
-        return '<a href="' . PUBLIC_PATH . Router::get('controller_path') . "/$action\" data-msg=\"$confirm\" class=\"js-confirm $class\" $attrs>$text</a>";
+        return '<a style="color: white" href="' . PUBLIC_PATH . Router::get('controller_path') . "/$action\" data-msg=\"$confirm\" class=\"js-confirm $class\" $attrs>$text</a>";
     }
 
     /**

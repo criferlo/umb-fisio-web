@@ -1,0 +1,15 @@
+<div id="accordion">
+                          
+    <h3><a href="#">Menú</a></h3>
+    <div>
+        <div><? echo Html::link("historia/nuevo/", "Nuevo") ?></div>
+        <div><? echo Html::link("historia/index/", "Mostrar todos") ?></div>
+        
+    </div>   
+</div>
+
+<script>
+    $(function() {
+        $( "#accordion" ).accordion();
+    });
+</script>

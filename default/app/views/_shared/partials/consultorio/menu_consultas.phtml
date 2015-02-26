@@ -1,0 +1,16 @@
+<div id="accordion">
+                          
+    <h3><a href="#">Menú</a></h3>
+    <div>
+        <div><? echo Html::link("consulta/nuevo/$idhistoria", "Nuevo") ?></div>
+        <div><? echo Html::link("consulta/index/$idhistoria", "Mostrar todos") ?></div>
+        <div><? echo Html::link("historia/index/", "Volver") ?></div>
+        
+    </div>   
+</div>
+
+<script>
+    $(function() {
+        $( "#accordion" ).accordion();
+    });
+</script>
