@@ -12,7 +12,7 @@
  * @author Cristhian
  */
 View::template("template_sistema");
-Load::models("Archivo","Diagnostico");
+Load::models("archivo","diagnostico");
 class DiagnosticoController extends AppController {
     //put your code here
     
