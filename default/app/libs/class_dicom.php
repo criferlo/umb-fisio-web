@@ -4,8 +4,8 @@ Dean Vaughan 2013 <dean@deanvaughan.org>
 http://www.deanvaughan.org/projects/class_dicom_php/
 */
 
-define('TOOLKIT_DIR', 'C:\dicom-tk\dcmtk-3.6.0-win32-i386\dcmtk-3.6.0-win32-i386\bin'); // CHANGE THIS IF YOU HAVE DCMTK INSTALLED SOMEWHERE ELSE
-
+//define('TOOLKIT_DIR', 'C:\dicom-tk\dcmtk-3.6.0-win32-i386\dcmtk-3.6.0-win32-i386\bin'); // CHANGE THIS IF YOU HAVE DCMTK INSTALLED SOMEWHERE ELSE
+define('TOOLKIT_DIR', '/usr/lib/dcmtk-3.6.0-linux-i686-static/bin'); // CHANGE THIS IF YOU HAVE DCMTK INSTALLED SOMEWHERE ELSE
 // WINDOWS EXAMPLE
 // define('TOOLKIT_DIR', 'C:/dcmtk/bin');
 
