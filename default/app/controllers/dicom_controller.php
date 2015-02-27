@@ -15,7 +15,7 @@
  */
 Load::lib("class_dicom");
 View::template("template_sistema");
-Load::models("Archivo");
+Load::models("archivo");
 
 class DicomController extends AppController {
 
