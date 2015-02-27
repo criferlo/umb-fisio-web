@@ -66,6 +66,8 @@ if ($_SERVER['QUERY_STRING']) {
     define('PUBLIC_PATH', $_SERVER['REQUEST_URI']);
 }
 
+define('PUBLIC_PATH2', dirname(dirname(__FILE__)) . '/public/');
+
 /**
  * Obtiene la url
  */

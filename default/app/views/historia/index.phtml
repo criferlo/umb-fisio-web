@@ -64,6 +64,11 @@
 
                             <? echo Js::linkAction("eliminar/$obj->id", "", "¿Está seguro de eliminar?", "ace-icon fa fa-trash-o bigger-120") ?>
                         </div>
+                        
+                        <div class="btn btn-xs btn-warning">
+                           <!--envia a realizar el diagnostico -->     
+                            <? echo Html::linkSoloIcono("ace-icon fa fa-heart bigger-120", "", false, "dicom/index/$obj->id") ?>
+                        </div>
 
                         <!--<button class="btn btn-xs btn-warning">
                             <i class="ace-icon fa fa-flag bigger-120"></i>

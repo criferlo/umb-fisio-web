@@ -1,0 +1,20 @@
+<?echo View::content()?>
+<h1>Subida de archivos para diagnóstico</h1>
+Para crear el diagnóstico necesitamos que suba 2 archivos, uno es el DICOM y otro es un JPG.
+<br>
+<br>
+<?echo Form::openMultipart("dicom/index/$idhistoria")?>
+<div class="form-group">
+    <label class="form-control">Subir archivo DICOM</label>
+    <?echo Form::file("archivodicom")?>
+</div>
+<br>
+<div class="form-group">
+    <label class="form-control">Subir archivo JPG</label>
+    <?echo Form::file("archivojpg")?>
+</div>
+
+<?echo Form::hidden("oculto")?>
+ <?echo Form::submit("Subir","class='btn btn-danger btn-sm'")?>
+
+<?echo Form::close()?>

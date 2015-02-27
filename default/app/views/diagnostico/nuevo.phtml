@@ -1,0 +1,82 @@
+
+<?View::content()?>
+
+<?echo Form::open("diagnostico/nuevo/$idhistoria/$iddicom/$idjpg")?>
+<?echo Form::hidden("oculto")?>
+<div class="row">
+    <div class="col-xs-12 col-lg-6">
+        <?
+        $dicomfile = new Archivo();
+        $dicomfile->find_first($iddicom);
+        echo Html::imgUploadedFiles($dicomfile->nombre)
+        ?>
+
+
+    </div>
+    <div class="col-xs-12 col-lg-6">
+        <?
+        $jpgfile = new Archivo();
+        $jpgfile->find_first($idjpg);
+        echo Html::imgUploadedFiles($jpgfile->nombre)
+        ?>
+
+
+    </div>
+</div>
+<br>
+<legend>Diagnóstico</legend>
+<br>
+<div class="row">
+    <div class="col-xs-12 col-lg-6">
+        Opcion 1 fisio
+
+    </div>
+    <div class="col-xs-12 col-lg-6">
+        <div class="col-xs-3">
+            <label>
+                <input name="switch-field-1" class="ace ace-switch ace-switch-2" type="checkbox" />
+                <span class="lbl"></span>
+            </label>
+        </div>
+    </div>    
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-lg-6">
+        Opcion 1 fisio
+
+    </div>
+    <div class="col-xs-12 col-lg-6">
+        <div class="col-xs-3">
+            <label>
+                <input name="switch-field-2" class="ace ace-switch ace-switch-2" type="checkbox" />
+                <span class="lbl"></span>
+            </label>
+        </div>
+    </div>    
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-lg-6">
+        Opcion 1 fisio
+
+    </div>
+    <div class="col-xs-12 col-lg-6">
+        <div class="col-xs-3">
+            <label>
+                <input name="switch-field-3" class="ace ace-switch ace-switch-2" type="checkbox" />
+                <span class="lbl"></span>
+            </label>
+        </div>
+    </div>    
+</div>
+
+<div class="row">
+    <div class="form-group">
+        <label>Descripción del diagnóstico</label>
+        <?echo Form::textarea("descripcion","class='form-control'","" )?>
+    </div>
+    <?echo Form::submit("Guardar","class='btn btn-danger btn-sm'")?>
+</div>
+
+<?echo Form::close()?>

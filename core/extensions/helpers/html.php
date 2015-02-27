@@ -140,6 +140,13 @@ class Html {
         }
         return '<img src="' . PUBLIC_PATH . "img/$src\" alt=\"$alt\" $attrs />";
     }
+    
+    public static function imgUploadedFiles($src, $alt = NULL, $attrs = NULL) {
+        if (is_array($attrs)) {
+            $attrs = Tag::getAttrs($attrs);
+        }
+        return '<img src="' . PUBLIC_PATH . "files/upload/$src\" alt=\"$alt\" $attrs />";
+    }
 
     /**
      * Aplica estilo zebra a una tabla.
