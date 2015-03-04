@@ -7,14 +7,14 @@
  */
 
 /**
- * Description of diagnostico
+ * Description of terapia
  *
  * @author Cristhian
  */
-class Diagnostico extends ActiveRecord {
+class Terapia extends ActiveRecord {
     //put your code here
     //put your code here
     public function paginar($consulta=null,$page = 1) {
-        return $this->paginate($consulta,"columns: diagnostico.*,diagnostico.id as diagnostico_id,historia.id,historia.identificacion","join: inner join historia on diagnostico.historia_id=historia.id","per_page: 5","page: $page","order: creado_at desc");
+        return $this->paginate($consulta,"per_page: 5","page: $page","order: creado_at desc");
     }
 }

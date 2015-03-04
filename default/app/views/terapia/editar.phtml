@@ -1,0 +1,62 @@
+<div class="page-header">
+    <h1>Editar terapia</h1>
+</div>
+<? echo View::content() ?>
+<? echo Form::open("terapia/editar/$id") ?>
+<?echo Form::hidden("terapia.diagnostico_id", "", $per->diagnostico_id)?>
+<div class="tabbable"> 
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Ems</a></li>
+        <li><a href="#tab2" data-toggle="tab">Calor</a></li>
+        <li><a href="#tab3" data-toggle="tab">Iontoforesis</a></li>
+        <li><a href="#tab4" data-toggle="tab">Tens</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+           
+            <div class="form-group"> <label>Frecuencia</label>
+            <? echo Form::text("terapia.ems_frecuencia", "class='form-control' placeholder='Valor'",$per->ems_frecuencia) ?></div>
+            <div class="form-group"> <label>Tiempo de contracción</label> 
+            <? echo Form::text("terapia.ems_tiempocontraccion", "class='form-control' placeholder='Valor'",$per->ems_tiempocontraccion) ?></div>
+            <div class="form-group"> <label>Tiempo de reposo</label> 
+            <? echo Form::text("terapia.ems_tiemporeposo", "class='form-control' placeholder='Valor'",$per->ems_tiemporeposo) ?></div>
+            <div class="form-group"> <label>Amplitud impulso</label> 
+            <? echo Form::text("terapia.ems_amplitudimpulso", "class='form-control' placeholder='Valor'",$per->ems_amplitudimpulso) ?></div>
+            <div class="form-group"> <label>Tiempo aplicación</label>
+            <? echo Form::text("terapia.ems_tiempoaplicacion", "class='form-control' placeholder='Valor'",$per->ems_tiempoaplicacion) ?></div>
+
+        </div>
+        <div class="tab-pane" id="tab2">
+
+           
+            <div class="form-group"> <label>Calor</label>
+            <? echo Form::text("terapia.calor_tiempo", "class='form-control' placeholder='Valor'",$per->calor_tiempo) ?></div>
+          
+        </div>
+        <div class="tab-pane" id="tab3">
+            <div class="form-group">Porcentaje lidocaína
+            <? echo Form::text("terapia.ionto_porcentajelidocaina", "class='form-control' placeholder='Valor'",$per->ionto_porcentajelidocaina) ?></div>
+           
+        </div>
+        <div class="tab-pane" id="tab4">
+
+            <div class="form-group">Modo
+            <? echo Form::text("terapia.tens_modo", "class='form-control' placeholder='Valor'",$per->tens_modo) ?></div>
+            <div class="form-group">Frecuencia
+            <? echo Form::text("terapia.tens_frecuencia", "class='form-control' placeholder='Valor'",$per->tens_frecuencia) ?></div>
+             <div class="form-group">Amplitud
+            <? echo Form::text("terapia.tens_amplitud", "class='form-control' placeholder='Valor'",$per->tens_amplitud) ?></div>
+             <div class="form-group">Intensidad
+            <? echo Form::text("terapia.tens_intensidad", "class='form-control' placeholder='Valor'",$per->tens_intensidad) ?></div>
+            <div class="form-group">Tiempo
+            <? echo Form::text("terapia.tens_tiempo", "class='form-control' placeholder='Valor'",$per->tens_tiempo) ?></div>
+        </div>
+    </div>
+</div>
+<br>    
+<? echo Form::submit("Guardar", "class='btn btn-primary'") ?>
+<? echo Html::link("terapia/index/$per->diagnostico_id","Cancelar")?>
+
+<? echo Form::close() ?>
+        
+<? echo View::content() ?>

@@ -1,4 +1,6 @@
-
+<div class="page-header">
+    <h1>Crear historia</h1>
+</div>
 <? echo View::content() ?>
 <? echo Form::open() ?>
 
@@ -7,7 +9,7 @@
         <li class="active"><a href="#tab1" data-toggle="tab">Historia</a></li>
         <li><a href="#tab2" data-toggle="tab">Datos personales</a></li>
         <li><a href="#tab3" data-toggle="tab">Antecedentes</a></li>
-        <li><a href="#tab4" data-toggle="tab">Antecedentes ginecológicos</a></li>
+        <li><a href="#tab4" data-toggle="tab">Signos vitales</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="tab1">
@@ -66,28 +68,28 @@
         </div>
         <div class="tab-pane" id="tab4">
 
-            <div class="form-group">Menarquia
-            <? echo Form::textarea("historia.menarquia", "class='form-control' placeholder='Escriba aquí'") ?></div>
-            <div class="form-group">Ciclos regulares
-            <? echo Form::textarea("historia.ciclosregulares", "class='form-control' placeholder='Escriba aquí'") ?></div>
-            <div class="form-group">Escala
-            <? echo Form::textarea("historia.escala", "class='form-control' placeholder='Escriba aquí'") ?></div>
-            <div class="form-group">Gestaciones
-            <? echo Form::textarea("historia.gestaciones", "class='form-control' placeholder='Escriba aquí'") ?></div>
-            <div class="form-group">Edad inicio sexual
-            <? echo Form::textarea("historia.edadiniciosexual", "class='form-control' placeholder='Escriba aquí'") ?></div>
-            <div class="form-group">Número parejas
-            <? echo Form::textarea("historia.nroparejas", "class='form-control' placeholder='Escriba aquí'") ?></div>
-            <div class="form-group">Antecedentes de infecciones
-            <? echo Form::textarea("historia.antinfecciones", "class='form-control' placeholder='Escriba aquí'") ?></div>
-            <div class="form-group">Citologías
-            <? echo Form::textarea("historia.citologias", "class='form-control' placeholder='Escriba aquí'") ?></div>
+            <div class="form-group">FC
+            <? echo Form::textarea("historia.fc", "class='form-control' placeholder='Escriba aquí'") ?></div>
+            <div class="form-group">SAT
+            <? echo Form::textarea("historia.sat", "class='form-control' placeholder='Escriba aquí'") ?></div>
+            <div class="form-group">FR
+            <? echo Form::textarea("historia.fr", "class='form-control' placeholder='Escriba aquí'") ?></div>
+            <div class="form-group">T
+            <? echo Form::textarea("historia.t", "class='form-control' placeholder='Escriba aquí'") ?></div>
+            <div class="form-group">TA
+            <? echo Form::textarea("historia.ta", "class='form-control' placeholder='Escriba aquí'") ?></div>
+            <div class="form-group">PESO
+            <? echo Form::textarea("historia.peso", "class='form-control' placeholder='Escriba aquí'") ?></div>
+            <div class="form-group">IMC
+            <? echo Form::textarea("historia.imc", "class='form-control' placeholder='Escriba aquí'") ?></div>
+            <div class="form-group">TALLA
+            <? echo Form::textarea("historia.talla", "class='form-control' placeholder='Escriba aquí'") ?></div>
         </div>
     </div>
 </div>
 <br>    
 <? echo Form::submit("Guardar", "class='btn btn-primary'") ?>
-
+<? echo Html::link("historia/index", "Cancelar")?>
 <? echo Form::close() ?>
         
 <? echo View::content() ?>

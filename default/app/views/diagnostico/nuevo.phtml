@@ -8,7 +8,7 @@
         <?
         $dicomfile = new Archivo();
         $dicomfile->find_first($iddicom);
-        echo Html::imgUploadedFiles($dicomfile->nombre)
+        echo Html::imgUploadedFiles($dicomfile->nombre,"Imagen dicom","width=50% height=50%")
         ?>
 
 
@@ -17,7 +17,7 @@
         <?
         $jpgfile = new Archivo();
         $jpgfile->find_first($idjpg);
-        echo Html::imgUploadedFiles($jpgfile->nombre)
+        echo Html::imgUploadedFiles($jpgfile->nombre,"Imagen dicom","width=50% height=50%")
         ?>
 
 

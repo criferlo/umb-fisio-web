@@ -1,66 +1,39 @@
-<div class="widget-box">
-    <div class="widget-header widget-header-flat">
-        <h4 class="widget-title smaller">Historias clínicas</h4>
-    </div>
-
-    <div class="widget-body">
-        <div class="widget-main">
-
-            <? echo View::content() ?>
-            <? echo Form::open("historia/index", "POST", "class='form-inline'") ?>       
-
-            
-
-               <div class="form-group">     
-                   <label>Buscar por:</label>    
-                <?
-                $comboBusqueda = array('Identificación', 'Apellido');
-
-                echo Form::select("comboBusqueda", $comboBusqueda,"class='form-control'", "identificación");
-                echo Form::text("textoBusqueda", "class='form-control' placeholder='Escribe aquí..'", "");
-                ?>
-               </div>
-
-                <button type="submit" class="btn btn-purple btn-sm form-control">
-                    <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
-                    Buscar
-                </button>
-                 <? echo Html::link("historia/nuevo", "Crear nuevo", "class='btn btn-danger btn-sm'") ?>
-
-            
-
-            <? echo Form::close() ?>
-
-        </div>
-    </div>
+<div class="page-header">
+    <h1>Terapias</h1>
 </div>
+<? echo View::content() ?>
 
 
 <br>
-
-<? View::partial('paginators/extended', false, array('page' => $historias, 'url' => 'historia/index')); ?>
+<? echo Html::link("terapia/nuevo/$iddiagnostico", "Crear nuevo", "class='btn btn-danger btn-sm'") ?>
+<? echo Html::link("diagnostico/index/$idhis", "Cancelar")?>
 <br>
+<br>
+<? View::partial('paginators/extended', false, array('page' => $arrTerapias, 'url' => "terapia/index/$iddiagnostico")); ?>
+<br>
+
 <table class="table table-striped">
     <thead><tr style="text-align:center;font-weight:bold;">
-            <th>Identificación</th>
-            <th>Apellidos</th>
-            <th>Nombres</th>
-            <th>Teléfono</th>
-            <th>Acudiente</th>
-            <th>Tel acudiente</th>
+            <th>Id terapia</th>
+            <th>Fecha y hora</th>
+            <th>Realizada</th>
             <th>Opciones</th>
-
+           
         </tr></thead>   
 
     <tbody>
-        <? foreach ($historias->items as $obj) { ?>
+        <? foreach ($arrTerapias->items as $obj) { ?>
             <tr>
-                <td><? echo $obj->identificacion ?></td>
-                <td><? echo $obj->apellidos ?></td>
-                <td><? echo $obj->nombres ?></td>
-                <td><? echo $obj->telefono1 ?></td>
-                <td><? echo $obj->acudiente ?></td>
-                <td><? echo $obj->telefonoacudiente ?></td>
+                <td><? echo $obj->id ?></td>
+                <td><? echo $obj->creado_at ?></td>
+                <td><? 
+                        if($obj->realizada=="1"){
+                            echo "SI";
+                        }
+                        else{
+                            echo "NO";
+                        }
+                    ?></td>
                 <td>
                     <div class="hidden-sm hidden-xs btn-group">
                         <!--<button class="btn btn-xs btn-success">
@@ -71,19 +44,14 @@
 
                         <div class="btn btn-xs btn-info">
 
-                            <? echo Html::linkSoloIcono("ace-icon fa fa-pencil bigger-120", "", false, "historia/editar/$obj->id") ?>
+                            <? echo Html::linkSoloIcono("ace-icon fa fa-pencil bigger-120", "", false, "terapia/editar/$obj->id") ?>
                         </div>
 
                         <div class="btn btn-xs btn-danger">
 
                             <? echo Js::linkAction("eliminar/$obj->id", "", "¿Está seguro de eliminar?", "ace-icon fa fa-trash-o bigger-120") ?>
                         </div>
-
-                        <div class="btn btn-xs btn-warning">
-                            <!--envia a realizar el diagnostico -->     
-                            <? echo Html::linkSoloIcono("ace-icon fa fa-heart bigger-120", "", false, "diagnostico/index/$obj->id") ?>
-                        </div>
-
+                       
                         <!--<button class="btn btn-xs btn-warning">
                             <i class="ace-icon fa fa-flag bigger-120"></i>
                         </button>-->
@@ -123,8 +91,8 @@
             </tr>
         <? } ?> 
     </tbody>
-
+   
 </table> 
 
-<? View::partial('paginators/extended', false, array('page' => $historias, 'url' => 'historia/index')); ?>
+<? View::partial('paginators/extended', false, array('page' => $arrTerapias,'url' => "terapia/index/$iddiagnostico")); ?>
 

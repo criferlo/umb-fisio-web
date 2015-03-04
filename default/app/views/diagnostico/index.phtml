@@ -1,1 +1,150 @@
-<?echo Html::link("dicom/index/$idhistoria","Nuevo diagnostico")?>
+<div class="widget-box">
+    <div class="widget-header widget-header-flat">
+        <h4 class="widget-title smaller">Diagnóstico</h4>
+    </div>
+
+    <div class="widget-body">
+        <div class="widget-main">
+
+            <? echo View::content() ?>
+            <? echo Form::open("diagnostico/index/$idhistoria", "POST", "class='form-inline'") ?>       
+
+            <div class="form-group">
+
+                <label>Buscar por: </label>
+
+                <?
+                $comboBusqueda = array('Texto');
+
+                echo Form::select("comboBusqueda", $comboBusqueda,"class='form-control'", "texto");
+                echo Form::text("textoBusqueda", "class='form-control' placeholder='Escribe aquí..'", "");
+                ?>
+
+                <button type="submit" class="btn btn-purple btn-sm">
+                    <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                    Buscar
+                </button>
+                <? echo Html::link("dicom/index/$idhistoria", "Crear nuevo", "class='btn btn-danger btn-sm'") ?>
+                 <? echo Html::link("historia/index", "Cancelar") ?>     
+            </div>
+
+            <? echo Form::close() ?>
+
+        </div>
+    </div>
+</div>
+<br>
+
+<? View::partial('paginators/extended', false, array('page' => $arrDiagnosticos, 'url' => "diagnostico/index/$idhistoria")); ?>
+<br>
+<table class="table table-striped">
+    <thead><tr style="text-align:center;font-weight:bold;">
+            <th>Historia</th>
+            <th>Paciente</th>
+            <th>Texto</th>
+            <th>Opcion 1</th>
+            <th>Opcion 2</th>
+            <th>Opcion 3</th>
+            <th>Opciones</th>
+
+        </tr></thead>   
+
+    <tbody>
+        <? foreach ($arrDiagnosticos->items as $obj) { ?>
+            <tr>
+                <td><? echo $obj->identificacion ?></td>
+                <td>
+                    <?
+                    $his = new Historia();
+                    $his->find_first($obj->historia_id);
+                    echo $his->apellidos . " " . $his->nombres;
+                    ?>
+                </td>
+                <td><? echo $obj->texto ?></td>
+                <td><?
+                    if ($obj->opcion1 == "1") {
+                        echo "SI";
+                    } else {
+                        echo "NO";
+                    }
+                    ?></td>
+                <td><?
+                    if ($obj->opcion2 == "1") {
+                        echo "SI";
+                    } else {
+                        echo "NO";
+                    }
+                    ?></td>
+                <td><?
+                    if ($obj->opcion3 == "1") {
+                        echo "SI";
+                    } else {
+                        echo "NO";
+                    }
+                    ?></td>
+                <td>
+                    <div class="hidden-sm hidden-xs btn-group">
+                        <!--<button class="btn btn-xs btn-success">
+                           
+                            <i class="ace-icon fa fa-check bigger-120"></i>
+                            
+                       </button>-->
+
+
+
+                        <div class="btn btn-xs btn-danger">
+
+                            <? echo Js::linkAction("eliminar/$obj->historia_id/$obj->diagnostico_id", "", "¿Está seguro de eliminar?", "ace-icon fa fa-trash-o bigger-120") ?>
+                        </div>
+
+                        <div class="btn btn-xs btn-info">
+
+                            <? echo Html::linkSoloIcono("ace-icon fa fa-gavel bigger-120", "", false, "terapia/index/$obj->diagnostico_id") ?>
+                        </div>
+
+
+                        <!--<button class="btn btn-xs btn-warning">
+                            <i class="ace-icon fa fa-flag bigger-120"></i>
+                        </button>-->
+                    </div>
+
+                    <div class="hidden-md hidden-lg">
+                        <div class="inline pos-rel">
+                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
+                                <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
+                            </button>
+
+                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+                                <li>
+                                    <? echo "hola" ?>
+
+                                </li>
+
+                                <li>
+                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                        <span class="green">
+                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                        <span class="red">
+                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        <? } ?> 
+    </tbody>
+
+</table> 
+
+<? View::partial('paginators/extended', false, array('page' => $arrDiagnosticos, 'url' => "diagnostico/index/$idhistoria")); ?>
+
+
