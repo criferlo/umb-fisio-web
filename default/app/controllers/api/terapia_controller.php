@@ -12,7 +12,7 @@
  * @author Cristhian
  */
 View::template(null);
-Load::models("Terapia");
+Load::models("terapia");
 
 class TerapiaController extends AppController {
 
