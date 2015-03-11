@@ -63,11 +63,11 @@ class TerapiaController extends AppController {
                     "iontoforesis" => $arrIonto,
                     "tens" => $arrTens,
                     "creado_at" => $obj->creado_at,
-                    "realizada_ems" => $obj->realizada_ems,
-                    "realizada_calor" => $obj->realizada_calor,
-                    "realizada_ionto" => $obj->realizada_ionto,
-                    "realizada_tens" => $obj->realizada_tens,
-                    "realizada_completa" => $obj->realizada_completa,
+                    "realizada_ems" => $obj->realizada_ems=="1"?"SI":"NO",
+                    "realizada_calor" => $obj->realizada_calor=="1"?"SI":"NO",
+                    "realizada_ionto" => $obj->realizada_ionto=="1"?"SI":"NO",
+                    "realizada_tens" => $obj->realizada_tens=="1"?"SI":"NO",
+                    "realizada_completa" => $obj->realizada_completa=="1"?"SI":"NO",
                 );
                 $arrTotal[] = $arr;
             }
