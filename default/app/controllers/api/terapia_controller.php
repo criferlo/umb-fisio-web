@@ -102,8 +102,8 @@ class TerapiaController extends AppController {
                 } else if ($tipoterapia == "TENS") {
                     $te->realizada_tens = "1";
                     $ban = 1;
-                } else if ($tipoterapia == "TOTAL") {
-                    $te->realizada_total = "1";
+                } else if ($tipoterapia == "COMPLETA") {
+                    $te->realizada_completa = "1";
                     $ban = 1;
                 }
                 if ($ban == 1) {
