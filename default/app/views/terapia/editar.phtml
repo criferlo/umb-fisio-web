@@ -6,13 +6,21 @@
 <?echo Form::hidden("terapia.diagnostico_id", "", $per->diagnostico_id)?>
 <div class="tabbable"> 
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab1" data-toggle="tab">Ems</a></li>
-        <li><a href="#tab2" data-toggle="tab">Calor</a></li>
-        <li><a href="#tab3" data-toggle="tab">Iontoforesis</a></li>
-        <li><a href="#tab4" data-toggle="tab">Tens</a></li>
+        <li class="active"><a href="#tab1" data-toggle="tab">General</a></li>
+        <li><a href="#tab2" data-toggle="tab">Ems</a></li>
+        <li><a href="#tab3" data-toggle="tab">Calor</a></li>
+        <li><a href="#tab4" data-toggle="tab">Iontoforesis</a></li>
+        <li><a href="#tab5" data-toggle="tab">Tens</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="tab1">
+           
+            <div class="form-group"> <label>Fecha de la terapia</label>
+            <? echo Form::date("terapia.fecha_terapia", "class='form-control'",$per->fecha_terapia) ?></div>
+           
+        </div>
+        
+        <div class="tab-pane" id="tab2">
            
             <div class="form-group"> <label>Frecuencia</label>
             <? echo Form::text("terapia.ems_frecuencia", "class='form-control' placeholder='Valor'",$per->ems_frecuencia) ?></div>
@@ -26,19 +34,19 @@
             <? echo Form::text("terapia.ems_tiempoaplicacion", "class='form-control' placeholder='Valor'",$per->ems_tiempoaplicacion) ?></div>
 
         </div>
-        <div class="tab-pane" id="tab2">
+        <div class="tab-pane" id="tab3">
 
            
-            <div class="form-group"> <label>Calor</label>
+            <div class="form-group"> <label>Tiempo de calor</label>
             <? echo Form::text("terapia.calor_tiempo", "class='form-control' placeholder='Valor'",$per->calor_tiempo) ?></div>
           
         </div>
-        <div class="tab-pane" id="tab3">
+        <div class="tab-pane" id="tab4">
             <div class="form-group">Porcentaje lidocaína
             <? echo Form::text("terapia.ionto_porcentajelidocaina", "class='form-control' placeholder='Valor'",$per->ionto_porcentajelidocaina) ?></div>
            
         </div>
-        <div class="tab-pane" id="tab4">
+        <div class="tab-pane" id="tab5">
 
             <div class="form-group">Modo
             <? echo Form::text("terapia.tens_modo", "class='form-control' placeholder='Valor'",$per->tens_modo) ?></div>

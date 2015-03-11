@@ -15,7 +15,7 @@
 <table class="table table-striped">
     <thead><tr style="text-align:center;font-weight:bold;">
             <th>Id terapia</th>
-            <th>Fecha y hora</th>
+            <th>Fecha terapia</th>
             <th>Realizada</th>
             <th>Opciones</th>
            
@@ -25,7 +25,7 @@
         <? foreach ($arrTerapias->items as $obj) { ?>
             <tr>
                 <td><? echo $obj->id ?></td>
-                <td><? echo $obj->creado_at ?></td>
+                <td><? echo $obj->fecha_terapia ?></td>
                 <td><? 
                         if($obj->realizada=="1"){
                             echo "SI";

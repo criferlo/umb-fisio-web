@@ -16,8 +16,9 @@ Load::models("terapia");
 
 class TerapiaController extends AppController {
 
-    //put your code here
-    function obtenerTerapia($iddiagnostico) {
+    
+
+    function obtenerTerapiaPorTipo($iddiagnostico) {
         $di = new Terapia();
         $arrTerapia = array();
         $arrTerapia = $di->find("diagnostico_id=$iddiagnostico");
@@ -27,24 +28,46 @@ class TerapiaController extends AppController {
             $arrTotal = array();
 
             foreach ($arrTerapia as $obj) {
-                $arr = array(
-                    "estado" => "exitoso-con-resultados",
-                    "secuencial" => $obj->id,
-                    "diagnostico_id" => $obj->diagnostico_id,
+
+                $arrEms = array(
                     "ems_frecuencia" => $obj->ems_frecuencia,
                     "ems_tiempocontraccion" => $obj->ems_tiempocontraccion,
                     "ems_tiemporeposo" => $obj->ems_tiemporeposo,
                     "ems_amplitudimpulso" => $obj->ems_amplitudimpulso,
                     "ems_tiempoaplicacion" => $obj->ems_tiempoaplicacion,
-                    "calor_tiempo" => $obj->calor_tiempo,
-                    "ionto_porcentajelidocaina" => $obj->ionto_porcentajelidocaina,
+                );
+
+                $arrTens = array(
                     "tens_modo" => $obj->tens_modo,
                     "tens_frecuencia" => $obj->tens_frecuencia,
                     "tens_amplitud" => $obj->tens_amplitud,
                     "tens_intensidad" => $obj->tens_intensidad,
                     "tens_tiempo" => $obj->tens_tiempo,
+                );
+
+                $arrCalor = array(
+                    "calor_tiempo" => $obj->calor_tiempo,
+                );
+
+                $arrIonto = array(
+                    "ionto_porcentajelidocaina" => $obj->ionto_porcentajelidocaina,
+                );
+
+                $arr = array(
+                    "estado" => "exitoso-con-resultados",
+                    "secuencial" => $obj->id,
+                    "diagnostico_id" => $obj->diagnostico_id,
+                    "fecha_terapia" => $obj->fecha_terapia,
+                    "ems" => $arrEms,
+                    "calor" => $arrCalor,
+                    "iontoforesis" => $arrIonto,
+                    "tens" => $arrTens,
                     "creado_at" => $obj->creado_at,
-                    "realizada" => $obj->realizada,
+                    "realizada_ems" => $obj->realizada_ems,
+                    "realizada_calor" => $obj->realizada_calor,
+                    "realizada_ionto" => $obj->realizada_ionto,
+                    "realizada_tens" => $obj->realizada_tens,
+                    "realizada_completa" => $obj->realizada_completa,
                 );
                 $arrTotal[] = $arr;
             }
@@ -56,27 +79,47 @@ class TerapiaController extends AppController {
     }
 
     //coloca realizada si el paciente realizó la terapia
-    function realizarTerapia($idterapia) {
+    function realizarTerapia($tipoterapia, $idterapia) {
 
 
         try {
 
             $te = new Terapia();
             $te->find($idterapia);
-            
-            if($te->id){
-                 $te->realizada = "1";
-                 $te->update();
-                 $arr = array("estado" => "operacion-exitosa");
-                 $this->respuesta = json_encode($arr);
-            }
-            else{
-                $arr = array("estado" => "operacion-fracasada","mensaje"=>"secuencial-no-encontrado");
+
+            if ($te->id) {
+
+                $ban = 0;
+                if ($tipoterapia == "EMS") {
+                    $te->realizada_ems = "1";
+                    $ban = 1;
+                } else if ($tipoterapia == "CALOR") {
+                    $te->realizada_calor = "1";
+                    $ban = 1;
+                } else if ($tipoterapia == "IONTO") {
+                    $te->realizada_ionto = "1";
+                    $ban = 1;
+                } else if ($tipoterapia == "TENS") {
+                    $te->realizada_tens = "1";
+                    $ban = 1;
+                } else if ($tipoterapia == "TOTAL") {
+                    $te->realizada_total = "1";
+                    $ban = 1;
+                }
+                if ($ban == 1) {
+                    $te->update();
+                    $arr = array("estado" => "operacion-exitosa");
+                    $this->respuesta = json_encode($arr);
+                }else{
+                    $arr = array("estado" => "falta-tipo-terapia");
+                    $this->respuesta = json_encode($arr);
+                }
+            } else {
+                $arr = array("estado" => "operacion-fracasada", "mensaje" => "secuencial-no-encontrado");
                 $this->respuesta = json_encode($arr);
             }
-           
         } catch (Exception $e) {
-            $arr = array("estado" => "operacion-fracasada","mensaje"=>$e->getMessage());
+            $arr = array("estado" => "operacion-fracasada", "mensaje" => $e->getMessage());
             $this->respuesta = json_encode($arr);
         }
     }
