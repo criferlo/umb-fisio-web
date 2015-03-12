@@ -29,9 +29,6 @@ class DiagnosticoController extends AppController {
                     "estado"=>"exitoso-con-resultados",
                     "secuencial"=>$obj->id,
                     "texto"=>$obj->texto,
-                    "opcion1"=>$obj->opcion1,
-                    "opcion2"=>$obj->opcion2,
-                    "opcion3"=>$obj->opcion3,
                     "historia_id"=>$obj->historia_id,
                     "creado_at"=>$obj->creado_at,
                     );

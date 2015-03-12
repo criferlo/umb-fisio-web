@@ -46,34 +46,11 @@ class DiagnosticoController extends AppController {
 
         if (Input::hasPost("oculto")) {
 
-            $diag = new Diagnostico();
+            $diag = new Diagnostico(Input::post("diagnostico"));
             $diag->archivodicom_id = $iddicom;
             $diag->archivojpg_id = $idjpg;
             $diag->historia_id = $idhistoria;
             $diag->texto = Input::post("descripcion");
-
-            $opcion1 = Input::post("switch-field-1");
-            $opcion2 = Input::post("switch-field-2");
-            $opcion3 = Input::post("switch-field-3");
-            $opcion4 = Input::post("switch-field-4");
-
-            if (isset($opcion1)) {
-                $diag->opcion1 = "1";
-            } else {
-                $diag->opcion1 = "0";
-            }
-
-            if (isset($opcion2)) {
-                $diag->opcion2 = "1";
-            } else {
-                $diag->opcion2 = "0";
-            }
-
-            if (isset($opcion3)) {
-                $diag->opcion3 = "1";
-            } else {
-                $diag->opcion3 = "0";
-            }
 
             if ($diag->save()) {
                 Flash::valid("Se grabó correctamente el diagnóstico");

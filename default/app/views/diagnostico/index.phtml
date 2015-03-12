@@ -41,10 +41,7 @@
     <thead><tr style="text-align:center;font-weight:bold;">
             <th>Historia</th>
             <th>Paciente</th>
-            <th>Texto</th>
-            <th>Opcion 1</th>
-            <th>Opcion 2</th>
-            <th>Opcion 3</th>
+            <th>Texto</th>            
             <th>Opciones</th>
 
         </tr></thead>   
@@ -61,27 +58,7 @@
                     ?>
                 </td>
                 <td><? echo $obj->texto ?></td>
-                <td><?
-                    if ($obj->opcion1 == "1") {
-                        echo "SI";
-                    } else {
-                        echo "NO";
-                    }
-                    ?></td>
-                <td><?
-                    if ($obj->opcion2 == "1") {
-                        echo "SI";
-                    } else {
-                        echo "NO";
-                    }
-                    ?></td>
-                <td><?
-                    if ($obj->opcion3 == "1") {
-                        echo "SI";
-                    } else {
-                        echo "NO";
-                    }
-                    ?></td>
+                
                 <td>
                     <div class="hidden-sm hidden-xs btn-group">
                         <!--<button class="btn btn-xs btn-success">
