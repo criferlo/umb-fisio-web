@@ -73,7 +73,10 @@ class TerapiaController extends AppController {
             }
             $this->respuesta = json_encode($arrTotal);
         } else {
+
             $arr = array("estado" => "exitoso-sin-resultados");
+            $arrTotal = array();
+            $arrTotal[] = $arr;
             $this->respuesta = json_encode($arr);
         }
     }
