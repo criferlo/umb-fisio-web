@@ -118,12 +118,16 @@ class TerapiaController extends AppController {
                     $this->respuesta = json_encode($arr);
                 }
             } else {
+                $arrTotal = array();
                 $arr = array("estado" => "operacion-fracasada", "mensaje" => "secuencial-no-encontrado");
-                $this->respuesta = json_encode($arr);
+                $arrTotal[] = $arr;
+                $this->respuesta = json_encode($arrTotal);
             }
         } catch (Exception $e) {
+            $arrTotal = array();
             $arr = array("estado" => "operacion-fracasada", "mensaje" => $e->getMessage());
-            $this->respuesta = json_encode($arr);
+            $arrTotal[] = $arr;
+            $this->respuesta = json_encode($arrTotal);
         }
     }
 

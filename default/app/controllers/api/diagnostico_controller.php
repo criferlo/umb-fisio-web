@@ -37,8 +37,10 @@ class DiagnosticoController extends AppController {
             $this->respuesta = json_encode($arrTotal);
         }
         else{
+             $arrTotal = array();
              $arr = array("estado"=>"exitoso-sin-resultados"); 
-             $this->respuesta = json_encode($arr);
+             $arrTotal[] = $arr;
+             $this->respuesta = json_encode($arrTotal);
         }
     }
 }
