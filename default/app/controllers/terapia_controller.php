@@ -30,6 +30,7 @@ class TerapiaController extends AppController {
         if(Input::hasPost("terapia")){
             $terapia = new Terapia(Input::post("terapia"));
             $terapia->diagnostico_id = $iddiagnostico;
+            $terapia->hora_terapia = Input::post("timepicker1");
             if($terapia->save()){
                 Flash::valid("Se grabó correctamente la terapia");
                 Router::redirect("terapia/index/$iddiagnostico");
@@ -48,7 +49,7 @@ class TerapiaController extends AppController {
         
         if(Input::hasPost("terapia")){
             $terapia = new Terapia(Input::post("terapia"));
-            
+            $terapia->hora_terapia=Input::post("timepicker1");
             $terapia->id = $id;
             if($terapia->update()){
                 Flash::valid("Se modificó correctamente la terapia");

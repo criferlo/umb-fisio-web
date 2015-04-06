@@ -23,6 +23,8 @@
         <? echo Tag::css("ace/ace") ?>
 
         <? echo Tag::css("jquery.bootgrid.min") ?>
+        
+        <? echo Tag::css("bootstrap-timepicker")?>
 
         <!--[if lte IE 9]>
                 <link rel="stylesheet" href="../assets/css/ace-part2.css" class="ace-main-stylesheet" />
@@ -37,7 +39,7 @@
         <!-- ace settings handler -->
 
         <? echo Tag::js('ace/ace-extra') ?>
-
+        
 
         <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -674,7 +676,7 @@
 
         <? echo Tag::js('ace/jquery') ?>
         <? echo Tag::js('jquery/jquery.kumbiaphp') ?>
-
+         <? echo Tag::js("bootstrap-timepicker")?>
         <!-- <![endif]-->
 
         <!--[if IE]>
@@ -726,10 +728,21 @@ window.jQuery || document.write("<script src='../assets/js/jquery1x.js'>"+"<"+"/
         <? echo Tag::js('ace/ace/ace.widget-on-reload') ?>		
         <? echo Tag::js('ace/ace/ace.searchbox-autocomplete') ?>		
 
+       
 
         <!-- inline scripts related to this page -->
         <script type="text/javascript">
             jQuery(function ($) {
+                
+                 $('#timepicker1').timepicker({
+					minuteStep: 1,
+					showSeconds: false,
+					showMeridian: true
+                                        
+				}).next().on(ace.click_event, function(){
+					$(this).prev().focus();
+				});
+                
                 $('.easy-pie-chart.percentage').each(function () {
                     var $box = $(this).closest('.infobox');
                     var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
@@ -949,7 +962,11 @@ window.jQuery || document.write("<script src='../assets/js/jquery1x.js'>"+"<"+"/
                         $(this).removeClass('dropup');
                 });
 
+               
+
             })
+            
+            
         </script>
         <? echo Tag::js('jquery.bootgrid.min') ?>
 

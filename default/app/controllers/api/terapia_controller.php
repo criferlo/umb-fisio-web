@@ -58,6 +58,7 @@ class TerapiaController extends AppController {
                     "secuencial" => $obj->id,
                     "diagnostico_id" => $obj->diagnostico_id,
                     "fecha_terapia" => $obj->fecha_terapia,
+                    "hora_terapia" => $obj->hora_terapia,
                     "ems" => $arrEms,
                     "calor" => $arrCalor,
                     "iontoforesis" => $arrIonto,
