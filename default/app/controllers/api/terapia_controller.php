@@ -51,6 +51,8 @@ class TerapiaController extends AppController {
 
                 $arrIonto = array(
                     "ionto_porcentajelidocaina" => $obj->ionto_porcentajelidocaina,
+                    "ionto_tiempo" => $obj->ionto_tiempo,
+                    "ionto_intensidad" => $obj->ionto_intensidad,
                 );
 
                 $arr = array(
